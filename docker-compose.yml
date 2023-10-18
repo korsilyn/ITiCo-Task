@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  web:
+    restart: unless-stopped
+    build: .
+    working_dir: /django
+    volumes:
+      - .:/django
+    ports:
+      - 8000:8000
+    command: python itico/manage.py runserver 0.0.0.0:8000 # && python itico/manage.py runserver
