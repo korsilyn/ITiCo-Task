@@ -4,17 +4,20 @@
         {% if not user.is_authenticated %}
 	    <div class="block mt-4">
 		<div class="btn-group-vertical" role="group">
-		    <a class="btn btn-primary">
+		    <a class="btn btn-primary" href="{% url 'login' %}">
                         Войти
                     </a>
-                    <a class="btn btn-success">
+                    <a class="btn btn-success" href="{% url 'register' %}">
                         Регистрация
                     </a>
                 </div>
 	    </div>
 	{% else %}
-	    <div class="block">
+	    <div class="block mt-4">
 		<h2>Добро пожаловать, {{ user.username }}!</h2>
+		<a class="btn btn-primary" href="{% url 'logout' %}">
+		    Выйти из аккаунта
+		</a>
 	    </div>
 	{% endif %}
 {% endblock %}
