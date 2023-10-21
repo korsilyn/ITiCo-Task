@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block 'body' %}
+        {% if not user.is_authenticated %}
+	    <div class="block mt-4">
+		<div class="btn-group-vertical" role="group">
+		    <a class="btn btn-primary">
+                        Войти
+                    </a>
+                    <a class="btn btn-success">
+                        Регистрация
+                    </a>
+                </div>
+	    </div>
+	{% else %}
+	    <div class="block">
+		<h2>Добро пожаловать, {{ user.username }}!</h2>
+	    </div>
+	{% endif %}
+{% endblock %}

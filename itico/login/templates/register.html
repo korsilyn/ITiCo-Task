@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block 'body' %}
+    <form method="POST">
+        {% csrf_token %}
+        <h1 class="text-center">РЕГИСТРАЦИЯ</h1><br>
+        <label>Имя пользователя:</label> {{ form.username }}
+        <ul>
+            <li>Не больше 150 символов</li>
+            <li>Разрешены буквы, цифры, @ / . / + / - / _</li>
+        </ul>
+
+        <label>Пароль:</label> {{ form.password1 }}
+        <ul>
+            <li>Пароль должен отличаться от ваших личных данных и логина</li>
+            <li>Длина пароля не должна быть меньше 8 символов</li>
+            <li>Пароль не должен быть популярным (12345 и т.д.)</li>
+            <li>Пароль не может содержать только символы</li>
+        </ul>
+
+        <label>Повторите пароль для подтверждения:</label> {{ form.password2 }}
+
+        <br>
+        <div class="text-center"><button type="submit" class="btn btn-primary">Зарегистрироваться</button></div>
+    </form>
+{% endblock %}
