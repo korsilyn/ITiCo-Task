@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import BaseUserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import add_message, SUCCESS, ERROR
 from .forms import LoginForm
@@ -32,7 +32,7 @@ def login_page(request):
 
 def register_page(request):
     if request.method == 'POST':
-        regform = UserCreationForm(request.POST)
+        regform = BaseUserCreationForm(request.POST)
         if regform.is_valid():
             regform.save()
             username = regform.data['username']
@@ -48,7 +48,7 @@ def register_page(request):
         return redirect('register')
 
     context = get_base_context(request, {
-        'form': UserCreationForm()
+        'form': BaseUserCreationForm()
     })
     return render(request, 'register.html', context)
 

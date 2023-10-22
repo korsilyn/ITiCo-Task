@@ -10,12 +10,12 @@
 <body class="light">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Test</a>
+		<a class="navbar-brand" href="{% url 'index' %}">Test</a>
 	</div>
     </nav>
     <div style="display: flex; align-items: flex-start;">
-	{% include 'messages.html' %}
         <div class="container text-center">
+	    {% include 'messages.html' %}
             {% block 'body' %}
                 Здесь должен размещаться контент страницы
             {% endblock %}
