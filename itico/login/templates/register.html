@@ -5,21 +5,20 @@
         {% csrf_token %}
         <h1 class="text-center">РЕГИСТРАЦИЯ</h1><br>
 	<div class="mb-3">
-            <label class="form-label">Имя пользователя:</label> {{ form.username }}
+		<label class="form-label">Имя пользователя:</label><br> {{ form.username }}
 	    <div class="form-text">Не больше 150 символов</div>
             <div class="form-text">Разрешены буквы, цифры, @ / . / + / - / _</div>
 	</div>
 	<div class="mb-3">
-        <label>Пароль:</label> {{ form.password1 }}
-        <ul>
-            <li>Пароль должен отличаться от ваших личных данных и логина</li>
-            <li>Длина пароля не должна быть меньше 8 символов</li>
-            <li>Пароль не должен быть популярным (12345 и т.д.)</li>
-            <li>Пароль не может содержать только символы</li>
-        </ul>
+		<label class="form-label">Пароль:</label><br> {{ form.password1 }}
+            <div class="form-text">Пароль должен отличаться от ваших личных данных и логина</div>
+            <div class="form-text">Длина пароля не должна быть меньше 8 символов</div>
+            <div class="form-text">Пароль не должен быть популярным (12345 и т.д.)</div>
+            <div class="form-text">Пароль не может содержать только символы</div>
 	</div>
 	<div class="mb-3">
-        <label>Повторите пароль для подтверждения:</label> {{ form.password2 }}
+		<label class="form-label">Повторите пароль для подтверждения:</label><br>
+		{{ form.password2 }}
 	</div>
         <div class="text-center"><button type="submit" class="btn btn-primary">Зарегистрироваться</button></div>
     </form>
